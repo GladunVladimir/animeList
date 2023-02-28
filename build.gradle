@@ -14,7 +14,17 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation('org.springframework.boot:spring-boot-starter-test'){
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+    implementation('org.springframework.boot:spring-boot-starter-web')
+    implementation('org.springframework.boot:spring-boot-starter-thymeleaf')
+    implementation('org.springframework.boot:spring-boot-starter-data-jpa:')
+    implementation('org.xerial:sqlite-jdbc:3.40.1.0')
+    implementation ('org.hibernate:hibernate-core:6.1.7.Final')
+    implementation('org.hibernate:hibernate-community-dialects:6.1.7.Final')
+//    implementation('org')
+
 }
 
 tasks.named('test') {
