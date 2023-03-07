@@ -12,11 +12,4 @@ public class MainController {
         model.addAttribute("title", "AnimeList/watch");
         return "watchPage";
     }
-
-//    @GetMapping("/watched")
-//    public String watchedPage(Model model) {
-//        model.addAttribute("title", "AnimeList/watched");
-//        return "watchedPage";
-//    }
-
 }
