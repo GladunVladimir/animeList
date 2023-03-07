@@ -8,11 +8,11 @@ import jakarta.persistence.Id;
 @Entity
 public class Post {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String title;
-    private int season;
+    private String season;
 
     public Long getId() {
         return id;
@@ -22,7 +22,7 @@ public class Post {
         return title;
     }
 
-    public int getSeason() {
+    public String getSeason() {
         return season;
     }
 
@@ -34,7 +34,15 @@ public class Post {
         this.title = title;
     }
 
-    public void setSeason(int season) {
+    public void setSeason(String season) {
         this.season = season;
+    }
+
+    public Post(String title, String season) {
+        this.title = title;
+        this.season = season;
+    }
+
+    public Post() {
     }
 }

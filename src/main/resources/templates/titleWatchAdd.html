@@ -12,10 +12,10 @@
       <a class="nav-link" href="/watch">Watch</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link active" href="/watched">Watched movies</a>
+      <a class="nav-link" href="/watched">Watched movies</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/add-title">Add title</a>
+      <a class="nav-link active" href="/add-title">Add title</a>
     </li>
     <li class="nav-item">
       <a class="nav-link disabled" href="/settings">Settings</a>
@@ -24,14 +24,15 @@
 </ul>
 
 <main class="flex-shrink-0">
-  <div th:each="el : ${posts}" class="alert alert-info mt-2">
-    <h3 th:text="${el.title}"/>
-    <p th:text="${el.season}"/>
+  <div class="container mt-5">
+    <h1 class="mt-5">Adding new title</h1>
+    <form action="/add-title" method="post">
+        <input type="text" name="title" placeholder="Add movie's title" class="form-control">
+        <input type="text" name="season" placeholder="Add movie's season number" class="form-control">
+        <button type="submit" class="btn btn-success">Add</button>
+    </form>
   </div>
 </main>
-
-<p th:text="'Привет, ' + ${title} + '!'" />
-
 
 </body>
 </html>

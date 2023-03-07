@@ -15,20 +15,21 @@
             <a class="nav-link" href="/watched">Watched movies</a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="/add-title">Add title</a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link disabled" href="/settings">Settings</a>
         </li>
     </ul>
 </ul>
 
     <main class="flex-shrink-0">
-        <div class="container">
-            <h1 class="mt-5">Movies to watch</h1>
-            <p>Аниме 1</p>
+        <div th:each="el : ${posts}" class="alert alert-info mt-2">
+            <h2 th:text="${el.id}"/>
+            <h3 th:text="${el.title}"/>
+            <p th:text="${el.season}"/>
         </div>
     </main>
-
-    <p th:text="'Привет, ' + ${title} + '!'" />
-
 
 </body>
 </html>
