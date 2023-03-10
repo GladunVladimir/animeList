@@ -37,10 +37,12 @@ public class WatchController {
         return "redirect:/watch";
     }
 
-    @RequestMapping("/watch/{id}/remove")
+    @PostMapping("/watch/{id}/remove")
     public String postDeleteTitle(@PathVariable(value = "id") long id, Model model){
+        System.out.println("ыыыыыыы");
         Post post = postRepository.findById(id).orElseThrow();
         postRepository.delete(post);
+
         return "redirect:/watch";
     }
 

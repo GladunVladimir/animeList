@@ -34,7 +34,7 @@
                     </p>
                 </div>
                 <div class="col-lg-6" id="right">
-                    <form th:action="'/watch' + ${el.id} + '/remove'" method="post">
+                    <form th:action="'/watch/' + ${el.id} + '/remove'" method="post">
                     <button class="btn btn-warning" type="submit">Удалить</button>
                     </form>
                 </div>
