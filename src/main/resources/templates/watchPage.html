@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <title th:text="${title}" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -23,13 +23,23 @@
     </ul>
 </ul>
 
-    <main class="flex-shrink-0">
-        <div th:each="el : ${posts}" class="alert alert-info mt-2">
-            <h2 th:text="${el.id}"/>
-            <h3 th:text="${el.title}"/>
-            <p th:text="${el.season}"/>
+    <main class="container-fluid">
+            <div th:each="el : ${posts}" class="alert alert-info mt-2">
+                <div class="row">
+                <div class="col-lg-6" id="left">
+                    <p>
+                        <span th:text="${el.id}" >id</span>
+                        <span th:text="${el.title}">title</span>
+                        <p th:text="${el.season}" >season</p>
+                    </p>
+                </div>
+                <div class="col-lg-6" id="right">
+                    <form th:action="'/watch' + ${el.id} + '/remove'" method="post">
+                    <button class="btn btn-warning" type="submit">Удалить</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </main>
-
 </body>
 </html>

@@ -5,9 +5,10 @@ import com.vvs.animelist.repo.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.Optional;
 
 @Controller
 public class WatchController {
@@ -35,5 +36,13 @@ public class WatchController {
         postRepository.save(post);
         return "redirect:/watch";
     }
+
+    @RequestMapping("/watch/{id}/remove")
+    public String postDeleteTitle(@PathVariable(value = "id") long id, Model model){
+        Post post = postRepository.findById(id).orElseThrow();
+        postRepository.delete(post);
+        return "redirect:/watch";
+    }
+
 
 }
