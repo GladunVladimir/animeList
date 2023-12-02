@@ -31,8 +31,8 @@ public class WatchController {
     }
 
     @PostMapping("/add-title")
-    public String postAddTitle(@RequestParam String title, @RequestParam String season, Model model){
-        Post post = new Post(title, season);
+    public String postAddTitle(@RequestParam String title, @RequestParam String season, @RequestParam String series, Model model){
+        Post post = new Post(title, season, series);
         postRepository.save(post);
         return "redirect:/watch";
     }
@@ -40,11 +40,9 @@ public class WatchController {
     @PostMapping("/watch/{id}/remove")
     public String postDeleteTitle(@PathVariable(value = "id") long id, Model model){
         Post post = postRepository.findById(id).orElseThrow();
-        DeletedPost delPost = new DeletedPost(post.getTitle(), post.getSeason());
+        DeletedPost delPost = new DeletedPost(post.getTitle(), post.getSeason(), post.getSeries());
         deletedPostRepository.save(delPost);
         postRepository.delete(post);
         return "redirect:/watch";
     }
-
-
 }

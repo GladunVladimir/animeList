@@ -1,7 +1,7 @@
 package com.vvs.animelist.repo;
 
 import com.vvs.animelist.models.DeletedPost;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface DeletedPostRepository extends CrudRepository<DeletedPost, Long> {
+public interface DeletedPostRepository extends JpaRepository<DeletedPost, Long> {
 }

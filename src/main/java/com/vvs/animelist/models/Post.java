@@ -13,6 +13,7 @@ public class Post {
 
     private String title;
     private String season;
+    private String series;
 
     public Long getId() {
         return id;
@@ -25,6 +26,7 @@ public class Post {
     public String getSeason() {
         return season;
     }
+    public String getSeries(){return series;}
 
     public void setId(Long id) {
         this.id = id;
@@ -38,9 +40,12 @@ public class Post {
         this.season = season;
     }
 
-    public Post(String title, String season) {
+    public void setSeries(String series){this.series = series;}
+
+    public Post(String title, String season, String series) {
         this.title = title;
         this.season = season;
+        this.series = series;
     }
 
     public Post() {
